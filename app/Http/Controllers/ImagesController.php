@@ -14,7 +14,8 @@ class ImagesController extends Controller
      */
     public function index()
     {
-        //
+        $images = Image::all();
+        return view('display_images')->with('images', $images);
     }
 
     /**
@@ -43,6 +44,7 @@ class ImagesController extends Controller
         $request->validate([
             'title_image' => 'required',
             'file' => 'required',
+            'alt_image' => 'required',
         ]);
 
         if ($request->file('file')->isValid()) {
@@ -55,9 +57,9 @@ class ImagesController extends Controller
                 $name = $file->getClientOriginalName();
                 $file->move('images', $name);
                 $input['image'] = $name;
-                echo "Image was upladed with success!";
+                Image::create($input);
             }
-            Image::create($input);
+            return redirect('/')->with('success', 'Image was uploaded with success.');
         }
     }
 

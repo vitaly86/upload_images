@@ -11,5 +11,5 @@ class Image extends Model
 
     // protected $table = 'homework';
 
-    protected $fillable = ['title_image', 'image'];
+    protected $fillable = ['title_image', 'image', 'alt_image'];
 }

@@ -23,9 +23,17 @@
     <span style="color:red;">{{$message}}</span>
 @enderror
 <br>
+<div class="form-group">
+    {!! Form::label('alt_image', 'Image Description:')!!}
+    {!! Form::text('alt_image', null, ['class'=>'form-controll'])!!}
+</div>
+@error('alt_image')
+    <span style="color:red;">{{$message}}</span>
+@enderror
+<br>
 <div class="form-group"> 
     Choose Image
-    {!! Form::file('file', ['class'=>'form-controll'], $attributes = ['accept'=>"image/x-png,image/gif,image/jpeg"])!!}
+    {!! Form::file('file', ['class'=>'form-controll'], $attributes = ['accept'=>"image/x-png,image/gif,image/jpeg,image/jpg"])!!}
 </div>
 
 @error('file')

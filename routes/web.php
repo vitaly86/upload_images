@@ -25,6 +25,6 @@ use App\Models\Image;
 
 Route::resource('/', 'App\Http\Controllers\ImagesController');
 
-Route::post('/project', function () {
+Route::get('/project', function () {
     return view('project');
 });
